@@ -1,0 +1,82 @@
+### Grunt files ###
+# Modules directory
+/node_modules
+
+# Compiled files
+/assets/_dest
+# /assets/css
+# /assets/fonts
+# /assets/img
+# /assets/js
+
+# Grunt log file
+npm-debug.log
+
+# Grunt usually preprocesses files such as coffeescript, compass... inside the .tmp directory
+.tmp/
+
+
+
+### PHPStorm ##
+.idea/*
+
+## Sublime
+*.sublime-project
+*.sublime-workspace
+
+
+## File-based project format:
+*.ipr
+*.iws
+
+# Config files
+*.xml
+
+
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+
+### Windows ###
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+__Resources
