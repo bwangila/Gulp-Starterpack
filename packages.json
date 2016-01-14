@@ -1,0 +1,32 @@
+{
+    /*==========================================================
+     * Edit the following to match your project
+     *==========================================================
+     */
+    "name": "Up and Running Gulpfile.js", // Your project name
+    "version": "1.0.0", // Your project version
+    "description": "Gulpfile.js to get your web projects up and running", //Your project description
+    "author": "Brian Wangila",  // Your project author
+    "license": "ISC", // Your project license
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+
+    /*==========================================================
+     * Dependencies for your project.
+     * Don't edit these unless you know what you are doing
+     *==========================================================
+     */
+    "devDependencies": {
+      "gulp": "^3.9.0",
+      "gulp-autoprefixer": "^3.1.0",
+      "gulp-concat": "^2.6.0",
+      "gulp-cssnano": "^2.1.0",
+      "gulp-imagemin": "^2.4.0",
+      "gulp-jshint": "^2.0.0",
+      "gulp-uglify": "^1.5.1",
+      "imagemin-pngquant": "^4.2.0",
+      "jshint": "^2.8.0"
+    }
+}
