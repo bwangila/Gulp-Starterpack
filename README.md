@@ -1,4 +1,4 @@
-# Up and Running gulpfile.js for Web Projects
+# Gulp Starterpack for Web Projects
 This is a no-frills gulpfile.js that addresses all the basics for web projects.
 
 ### What can you do with this file?

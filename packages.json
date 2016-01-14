@@ -3,9 +3,9 @@
      * Edit the following to match your project
      *==========================================================
      */
-    "name": "Up and Running Gulpfile.js", // Your project name
+    "name": "Gulp Starterpack", // Your project name
     "version": "1.0.0", // Your project version
-    "description": "Gulpfile.js to get your web projects up and running", //Your project description
+    "description": "Gulp Starterpack to get your web projects up and running", //Your project description
     "author": "Brian Wangila",  // Your project author
     "license": "ISC", // Your project license
     "main": "index.js",
