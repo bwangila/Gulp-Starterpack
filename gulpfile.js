@@ -28,7 +28,9 @@ var concat 			= require('gulp-concat'),
  * Process CSS files
  *==========================================================*/
 gulp.task('css', function() {
-    return gulp.src(assets_source + '/css/*.css')
+    return gulp.src([
+    	assets_source + '/css/*.css'
+	])
         // Minify CSS
         .pipe(cssnano())
         // Autoprefix
@@ -36,5 +38,42 @@ gulp.task('css', function() {
         // Concatenate minified CSS files
         .pipe(concat('style.min.css'))
         // Save the final CSS file in the build folder
-        .pipe(gulp.dest(assets_source + '/css'));
+        .pipe(gulp.dest(assets_build + '/css'));
 });
+
+
+
+
+/*==========================================================
+ * Process JS files
+ *=========================================================*/
+gulp.task('js', function() {
+    return gulp.src([
+    	assets_source + '/js/libs/*.js',
+    	assets_source + '/js/main.js'
+    ])
+        // Minify JS files
+        .pipe(uglify())
+        // Concatenate minified JS files
+        .pipe(concat('main.min.js'))
+        // Save final JS file in build folder
+        .pipe(gulp.dest(assets_build + '/js'));
+});
+
+// Copy JS vendor files to final build
+gulp.task('copy_js', function() {
+    gulp.src([
+    	assets_source + '/js/vendor/*.js'
+	])
+    .pipe(gulp.dest(assets_build + '/js/vendor'));
+});
+
+// Lint your selected JS files
+gulp.task('jshint', function() {
+    return gulp.src([
+    	assets_source + '/js/main.js'
+	])
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'));
+});
+
