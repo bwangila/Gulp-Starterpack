@@ -21,7 +21,9 @@ var concat 			= require('gulp-concat'),
     uglify 			= require('gulp-uglify'),
     jshint 			= require('gulp-jshint'),
     imagemin 		= require('gulp-imagemin'),
-    pngquant 		= require('imagemin-pngquant');
+    pngquant 		= require('imagemin-pngquant'),
+    livereload      = require('gulp-livereload');
+
 
 
 
@@ -39,7 +41,9 @@ gulp.task('css', function() {
         // Concatenate minified CSS files
         .pipe(concat('style.min.css'))
         // Save the final CSS file in the build folder
-        .pipe(gulp.dest(assets_build + '/css'));
+        .pipe(gulp.dest(assets_build + '/css'))
+        // Live reload
+        .pipe(livereload());
 });
 
 
@@ -57,7 +61,9 @@ gulp.task('js', function() {
         // Concatenate minified JS files
         .pipe(concat('main.min.js'))
         // Save final JS file in build folder
-        .pipe(gulp.dest(assets_build + '/js'));
+        .pipe(gulp.dest(assets_build + '/js'))
+        // Live reload
+        .pipe(livereload());
 });
 
 // Copy JS vendor files to final build
@@ -94,5 +100,20 @@ gulp.task('images', function() {
             use: [pngquant()]
         }))
         .pipe(gulp.dest(assets_build + '/img'))
+        // Live reload
+        .pipe(livereload());
 });
+
+
+
+/*==========================================================
+ * Watch files for changes
+ *=========================================================*/
+ gulp.task('watch', function() {
+    gulp.watch(assets_source + '/css/*.css', ['css']);
+    gulp.watch(assets_source + '/js/*.js', ['js']);
+    gulp.watch(assets_source + '/img/*.{png,jpg,gif}', ['images']);
+
+});
+
 
