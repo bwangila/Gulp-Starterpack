@@ -24,6 +24,7 @@ var concat 			= require('gulp-concat'),
     pngquant 		= require('imagemin-pngquant');
 
 
+
 /*==========================================================
  * Process CSS files
  *==========================================================*/
@@ -40,7 +41,6 @@ gulp.task('css', function() {
         // Save the final CSS file in the build folder
         .pipe(gulp.dest(assets_build + '/css'));
 });
-
 
 
 
@@ -75,5 +75,24 @@ gulp.task('jshint', function() {
 	])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
+});
+
+
+
+/*==========================================================
+ * Optimize images
+ *=========================================================*/
+gulp.task('images', function() {
+    return gulp.src([
+    	assets_source + '/img/**/*.+(png|jpg|jpeg|gif|svg)'
+	])
+        .pipe(imagemin({
+            optimizationLevel: 4,
+            progressive: true,
+            interlaced: true,
+            multipass: true,
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest(assets_build + '/img'))
 });
 
