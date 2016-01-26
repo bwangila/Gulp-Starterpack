@@ -22,7 +22,7 @@ var concat 			= require('gulp-concat'),
     jshint 			= require('gulp-jshint'),
     imagemin 		= require('gulp-imagemin'),
     pngquant 		= require('imagemin-pngquant'),
-    cache       	= require('gulp-cache'),
+    newer       	= require('gulp-newer'),
     livereload      = require('gulp-livereload');
 
 
@@ -93,7 +93,8 @@ gulp.task('images', function() {
     return gulp.src([
     	assets_source + '/img/**/*.+(png|jpg|jpeg|gif|svg)'
 	])
-        .pipe(cache(
+		.pipe(newer(assets_build + '/img'))
+        .pipe(
             imagemin({
                 optimizationLevel: 4,
                 progressive: true,
@@ -101,7 +102,7 @@ gulp.task('images', function() {
                 multipass: true,
                 use: [pngquant()]
             })
-        ))
+        )
         .pipe(gulp.dest(assets_build + '/img'))
         // Live reload
         .pipe(livereload());
