@@ -5,7 +5,7 @@
 var assets_source = 'assets/_src';
 
 // Set you main source build folder path (where you want compiled files to be stored)
-var assets_build = 'assets/_build';
+var assets_build = 'assets';
 
 
 /*==========================================================
@@ -99,7 +99,7 @@ gulp.task('jshint', function() {
     	assets_source + '/js/main.js'
 	])
         .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'));
+        .pipe(jshint.reporter('jshint-stylish'))
 	    // Show completion message
 	    .pipe(notify({
 	    	message: 'Javascript files linting complete'
@@ -131,7 +131,7 @@ gulp.task('images', function() {
 	    // Show completion message
 	    .pipe(notify({
 	    	message: 'Image optimization complete'
-		}));
+		}))
         // Live reload
         .pipe(livereload());
 });
@@ -148,4 +148,5 @@ gulp.task('images', function() {
 
 });
 
+gulp.task('default', ['css', 'js', 'copy_js', 'jshint', 'images']);
 
