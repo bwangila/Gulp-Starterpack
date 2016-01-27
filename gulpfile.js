@@ -121,11 +121,12 @@ gulp.task('images', function() {
  * Watch files for changes
  *=========================================================*/
  gulp.task('watch', function() {
+    livereload.listen();
+	gulp.watch('**/*.php', livereload.reload);
     gulp.watch(assets_source + '/css/*.css', ['css']);
     gulp.watch(assets_source + '/js/*.js', ['js']);
     gulp.watch(assets_source + '/img/*.{png,jpg,gif}', ['images']);
-
 });
 
-gulp.task('default', ['css', 'js', 'copy_js', 'jshint', 'images']);
+gulp.task('default', ['css', 'js', 'copy_js', 'jshint', 'images', 'watch']);
 
