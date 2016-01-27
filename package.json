@@ -8,6 +8,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bwangila/Gulp-Starterpack.git"
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -15,9 +19,12 @@
     "gulp-cssnano": "^2.1.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-jshint": "^2.0.0",
-    "gulp-notify": "^2.2.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-newer": "^1.1.0",
+    "gulp-size": "^2.0.0",
     "gulp-uglify": "^1.5.1",
     "imagemin-pngquant": "^4.2.0",
-    "jshint": "^2.8.0"
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0"
   }
 }

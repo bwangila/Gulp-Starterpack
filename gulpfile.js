@@ -15,8 +15,7 @@ var assets_build = 'assets';
 var gulp = require('gulp');
 
 // Include Gulp plugins
-var notify 			= require('gulp-notify'),
-	concat 			= require('gulp-concat'),
+var concat 			= require('gulp-concat'),
     cssnano 		= require('gulp-cssnano'),
     autoprefixer 	= require('gulp-autoprefixer'),
     uglify 			= require('gulp-uglify'),
@@ -47,10 +46,6 @@ gulp.task('css', function() {
         .pipe(gulp.dest(assets_build + '/css'))
         // Show file sizes
         .pipe(size({showFiles: true}))
-        // Show completion message
-        .pipe(notify({
-        	message: 'CSS task complete.'
-    	}))
         // Live reload
         .pipe(livereload());
 });
@@ -73,10 +68,6 @@ gulp.task('js', function() {
         .pipe(gulp.dest(assets_build + '/js'))
         // Show file sizes
         .pipe(size({showFiles: true}))
-        // Show completion message
-        .pipe(notify({
-        	message: 'Javascript task complete.'
-    	}))
         // Live reload
         .pipe(livereload());
 });
@@ -87,10 +78,6 @@ gulp.task('copy_js', function() {
     	assets_source + '/js/vendor/*.js'
 	])
     .pipe(gulp.dest(assets_build + '/js/vendor'))
-    // Show completion message
-    .pipe(notify({
-    	message: 'Javascript files copied successfully'
-	}));
 });
 
 // Lint your selected JS files
@@ -100,10 +87,6 @@ gulp.task('jshint', function() {
 	])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
-	    // Show completion message
-	    .pipe(notify({
-	    	message: 'Javascript files linting complete'
-		}));
 });
 
 
@@ -127,11 +110,7 @@ gulp.task('images', function() {
         )
         .pipe(gulp.dest(assets_build + '/img'))
         // Show file sizes
-        .pipe(size({showFiles: true}))
-	    // Show completion message
-	    .pipe(notify({
-	    	message: 'Image optimization complete'
-		}))
+        .pipe(size())
         // Live reload
         .pipe(livereload());
 });
